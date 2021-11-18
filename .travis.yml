@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t owen2709/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true owen2709/docker-react npm run test
+
+language: generic
